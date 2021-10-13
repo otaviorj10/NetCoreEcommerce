@@ -21,5 +21,16 @@ namespace CasaDoCodigo
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
+
+
+
+        private readonly ApplicationContext contexto;
+
+        public Program(ApplicationContext contexto)
+        {
+            this.contexto = contexto;
+        }
+
+
     }
 }
