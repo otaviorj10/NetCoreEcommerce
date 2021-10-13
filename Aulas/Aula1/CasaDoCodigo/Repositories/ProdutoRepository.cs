@@ -10,9 +10,16 @@ namespace CasaDoCodigo.Repositories
     {
         private readonly ApplicationContext contexto;
 
+
+
         public ProdutoRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
+        }
+
+        public List<Produto> GetProdutos()
+        {
+            return contexto.Set<Produto>().ToList();
         }
 
         public void SaveProdutos(List<Livro> livros)
