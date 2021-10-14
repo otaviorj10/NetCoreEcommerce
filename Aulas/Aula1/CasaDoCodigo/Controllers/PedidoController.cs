@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CasaDoCodigo.Models;
 using CasaDoCodigo.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +13,12 @@ namespace CasaDoCodigo.Controllers
 
         /* Foi colocado o campo privado para ser consomido dentro da controller*/
         private readonly IProdutoRepository produtoRepository;
+        private readonly IPedidoRepository pedidoRepository;
 
-        public PedidoController(IProdutoRepository produtoRepository)
+        public PedidoController(IProdutoRepository produtoRepository ,
+            IPedidoRepository pedidoRepository)
         {
+            this.pedidoRepository = pedidoRepository;
             this.produtoRepository = produtoRepository;
         }
 
@@ -24,16 +28,24 @@ namespace CasaDoCodigo.Controllers
             return View(produtoRepository.GetProdutos());
         }
 
+        public IActionResult Carrinho(string codigo)
+        {
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                pedidoRepository.AddItem(codigo);
+            }
+
+            Pedido pedido = pedidoRepository.GetPedido();
+            return View(pedido.Itens);
+        }
+
+
         public IActionResult Cadastro()
         {
             return View();
         }
 
-        public IActionResult Carrinho()
-        {
-            return View();
-        }
-
+       
 
         public IActionResult Resumo ()
         {

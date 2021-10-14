@@ -1,4 +1,10 @@
-﻿<h3>Cadastro</h3>
+﻿@{
+
+    ViewData["Title"] = "Cadasro";
+}
+
+
+<h3>Cadastro</h3>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -32,7 +38,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label class="control-label" for="municipio">Município</label>
+                <label class="control-label" for="municipio">Município</label> 
                 <input type="text" class="form-control" id="municipio" placeholder="Município">
             </div>
             <div class="form-group">
@@ -74,7 +80,7 @@
             </div>
 
             <div class="form-group">
-                <a class="btn btn-success" href="/">
+                <a class="btn btn-success" asp-action="carrossel">
                     Continuar Comprando
                 </a>
             </div>
