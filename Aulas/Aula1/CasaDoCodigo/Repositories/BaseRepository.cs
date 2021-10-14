@@ -13,8 +13,6 @@ namespace CasaDoCodigo.Repositories
         protected readonly DbSet<T> dbSet;
 
 
-
-
         public BaseRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
