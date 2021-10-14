@@ -9,6 +9,8 @@ namespace CasaDoCodigo.Repositories
 {
     public class ProdutoRepository :BaseRepository<Produto>, IProdutoRepository
     {
+
+
         public ProdutoRepository(ApplicationContext contexto) : base(contexto) 
         {
         }

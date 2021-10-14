@@ -18,8 +18,9 @@ namespace CasaDoCodigo.Controllers
         public PedidoController(IProdutoRepository produtoRepository ,
             IPedidoRepository pedidoRepository)
         {
-            this.pedidoRepository = pedidoRepository;
             this.produtoRepository = produtoRepository;
+            this.pedidoRepository = pedidoRepository;
+
         }
 
 
@@ -27,6 +28,7 @@ namespace CasaDoCodigo.Controllers
         {
             return View(produtoRepository.GetProdutos());
         }
+
 
         public IActionResult Carrinho(string codigo)
         {

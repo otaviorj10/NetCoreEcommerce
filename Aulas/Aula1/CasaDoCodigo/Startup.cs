@@ -25,17 +25,21 @@ namespace CasaDoCodigo
         {
             string connectionString = Configuration.GetConnectionString("Default");
             services.AddMvc();
-            services.AddDistributedMemoryCache(); /*adicionando serviço de cache na memoria distribuido*/
+            services.AddDistributedMemoryCache();     /*adicionando serviço de cache na memoria distribuido*/
             services.AddSession();    
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
             services.AddTransient<IDataService,DataService>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+
             services.AddTransient<IProdutoRepository,ProdutoRepository>();
 
-            services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddTransient<ICadastroRepository, CadastroRepository>();
             services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
